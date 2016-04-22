@@ -300,22 +300,22 @@ elseif g:solarized_termcolors != 256 && &t_Co >= 16
     let s:green       = "2"
 elseif g:solarized_termcolors == 256
     let s:vmode       = "cterm"
-    let s:base03      = "234"
-    let s:base02      = "235"
-    let s:base01      = "239"
-    let s:base00      = "240"
-    let s:base0       = "244"
-    let s:base1       = "245"
-    let s:base2       = "187"
-    let s:base3       = "230"
-    let s:yellow      = "136"
+    let s:base03      = "0"    " brblack
+    let s:base02      = "234"  " black
+    let s:base01      = "246"  " brgreen
+    let s:base00      = "214"   " bryellow
+    let s:base0       = "251"   " brblue
+    let s:base1       = "14"   " brcyan
+    let s:base2       = "7"    " white
+    let s:base3       = "15"   " brwhite
+    let s:yellow      = "185"
     let s:orange      = "166"
-    let s:red         = "124"
-    let s:magenta     = "125"
-    let s:violet      = "61"
-    let s:blue        = "33"
-    let s:cyan        = "37"
-    let s:green       = "64"
+    let s:red         = "1"
+    let s:magenta     = "129"
+    let s:violet      = "207"
+    let s:blue        = "4"
+    let s:cyan        = "111"
+    let s:green       = "2"
 else
     let s:vmode       = "cterm"
     let s:bright      = "* term=bold cterm=bold"
@@ -619,6 +619,7 @@ exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
+exe "hi! CursorLineNr"   .s:fmt_none   .s:fg_base03  .s:bg_yellow
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
 if ( has("gui_running") || &t_Co > 8 )
     exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_base00
@@ -1089,6 +1090,12 @@ endfunction
 
 autocmd ColorScheme * if g:colors_name != "solarized" | silent! aunmenu Solarized | else | call SolarizedMenu() | endif
 
+" highlight current line
+set cursorline  " 高亮光标所在行
+set cursorcolumn  " 高亮光标所在列
+autocmd WinLeave * set nocursorline nocursorcolumn
+autocmd WinEnter * set cursorline cursorcolumn
+
 "}}}
 " License "{{{
 " ---------------------------------------------------------------------
@@ -1115,3 +1122,4 @@ autocmd ColorScheme * if g:colors_name != "solarized" | silent! aunmenu Solarize
 "
 " vim:foldmethod=marker:foldlevel=0
 "}}}
+"
