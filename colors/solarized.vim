@@ -671,7 +671,7 @@ exe "hi! TabLineSel"     .s:fmt_undr   .s:fg_base01 .s:bg_base2   .s:sp_base0  .
 exe "hi! CursorColumn"   .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base02
-exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base0
+exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_blue
 hi! link lCursor Cursor
 exe "hi! MatchParen"     .s:fmt_bold   .s:fg_red    .s:bg_base01
 
@@ -1089,12 +1089,6 @@ function! SolarizedMenu()
 endfunction
 
 autocmd ColorScheme * if g:colors_name != "solarized" | silent! aunmenu Solarized | else | call SolarizedMenu() | endif
-
-" highlight current line
-set cursorline  " 高亮光标所在行
-set cursorcolumn  " 高亮光标所在列
-autocmd WinLeave * set nocursorline nocursorcolumn
-autocmd WinEnter * set cursorline cursorcolumn
 
 "}}}
 " License "{{{
