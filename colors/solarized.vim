@@ -300,22 +300,22 @@ elseif g:solarized_termcolors != 256 && &t_Co >= 16
     let s:green       = "2"
 elseif g:solarized_termcolors == 256
     let s:vmode       = "cterm"
-    let s:base03      = "0"    " brblack
-    let s:base02      = "234"  " black
-    let s:base01      = "246"  " brgreen
-    let s:base00      = "214"   " bryellow
-    let s:base0       = "251"   " brblue
-    let s:base1       = "14"   " brcyan
-    let s:base2       = "7"    " white
-    let s:base3       = "15"   " brwhite
-    let s:yellow      = "185"
-    let s:orange      = "166"
-    let s:red         = "1"
-    let s:magenta     = "129"
-    let s:violet      = "207"
-    let s:blue        = "4"
-    let s:cyan        = "111"
-    let s:green       = "2"
+    let s:base03      = "0"    " brblack #000000
+    let s:base02      = "234"  " black #1c1c1c
+    let s:base01      = "246"  " brgreen #949494
+    let s:base00      = "214"   " bryellow #ffaf00
+    let s:base0       = "251"   " brblue #c6c6c6
+    let s:base1       = "14"   " brcyan #00ffff
+    let s:base2       = "7"    " white #c0c0c0
+    let s:base3       = "15"   " brwhite #ffffff
+    let s:yellow      = "185"  " #dfdf5f
+    let s:orange      = "166"  " #df5f00
+    let s:red         = "1"  " #800000
+    let s:magenta     = "129"  " #af00ff
+    let s:violet      = "207"  " #ff5fff
+    let s:blue        = "4"  " #000080
+    let s:cyan        = "111"  " #87afff
+    let s:green       = "2"  " #008000
 else
     let s:vmode       = "cterm"
     let s:bright      = "* term=bold cterm=bold"
@@ -630,7 +630,7 @@ exe "hi! Title"          .s:fmt_bold   .s:fg_orange .s:bg_none
 exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02 .s:fmt_revbb
 exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_red    .s:bg_none
 exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
-exe "hi! Folded"         .s:fmt_undb   .s:fg_base0  .s:bg_base02  .s:sp_base03
+exe "hi! Folded"         .s:fmt_undb   .s:fg_cyan   .s:bg_base02 .s:sp_base03
 exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base02
 if      (g:solarized_diffmode=="high")
 exe "hi! DiffAdd"        .s:fmt_revr   .s:fg_green  .s:bg_none
